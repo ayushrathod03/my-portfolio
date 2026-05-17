@@ -8,7 +8,7 @@ const TOTAL_FRAMES = 160;
 
 const getFramePath = (index: number) => {
   const paddedIndex = index.toString().padStart(3, "0");
-  return `/sequence/frame_${paddedIndex}_delay-0.05s.webp`;
+  return `/my-portfolio/sequence/frame_${paddedIndex}_delay-0.05s.webp`;
 };
 
 export default function ScrollyCanvas() {
