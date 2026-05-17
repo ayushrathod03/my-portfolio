@@ -45,7 +45,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-sm"
         >
-          Ayush Ajay Rathod <br />
+          AYUSH RATHOD <br />
           <span className="text-2xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-light via-white to-neutral-400 block mt-2">
             Bridging AI, Systems & Design
           </span>

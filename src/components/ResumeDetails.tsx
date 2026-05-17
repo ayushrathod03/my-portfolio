@@ -177,7 +177,7 @@ export default function ResumeDetails() {
           viewport={{ once: true }}
           className="mt-24 pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-neutral-500 text-sm font-light"
         >
-          <p>© {new Date().getFullYear()} Ayush Ajay Rathod. Engineered with Next.js 14 & Framer Motion.</p>
+          <p>© {new Date().getFullYear()} Ayush Rathod. Engineered with Next.js 14 & Framer Motion.</p>
           <div className="flex items-center gap-6">
             <a
               href="mailto:ayushrathod03@gmail.com"

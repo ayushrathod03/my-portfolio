@@ -8,7 +8,7 @@ export default function Home() {
       {/* 
         Component 1 & 2: The Sticky Scroller & Parallax Overlay
         Wraps the 500vh tracking container, custom WebP sequence canvas scrubbing,
-        and synchronized parallax text layers tailored to Ayush Ajay Rathod.
+        and synchronized parallax text layers tailored to Ayush Rathod.
       */}
       <ScrollyCanvas />
 
