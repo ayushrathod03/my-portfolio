@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award, Terminal } from "lucide-react";
+import { GraduationCap, Briefcase, Award, Terminal, Github } from "lucide-react";
 
 export default function ResumeDetails() {
   const containerVariants = {
@@ -187,6 +187,16 @@ export default function ResumeDetails() {
             </a>
             <span>&bull;</span>
             <span className="text-neutral-400 font-medium">667-431-0256</span>
+            <span>&bull;</span>
+            <a
+              href="https://github.com/ayushrathod03"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-accent-light transition-colors duration-200 flex items-center gap-1.5 font-medium"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
           </div>
         </motion.div>
       </div>

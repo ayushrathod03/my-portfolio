@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useTransform } from "framer-motion";
+import { Github } from "lucide-react";
 
 interface OverlayProps {
   scrollYProgress: MotionValue<number>;
@@ -64,7 +65,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-8 flex flex-wrap gap-4 justify-center pointer-events-auto text-sm text-neutral-400 font-light"
+          className="mt-8 flex flex-wrap items-center gap-4 justify-center pointer-events-auto text-sm text-neutral-400 font-light"
         >
           <a href="mailto:ayushrathod03@gmail.com" className="hover:text-accent-light transition-colors">
             ayushrathod03@gmail.com
@@ -72,6 +73,16 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           <span>&bull;</span>
           <a href="tel:6674310256" className="hover:text-accent-light transition-colors">
             667-431-0256
+          </a>
+          <span>&bull;</span>
+          <a
+            href="https://github.com/ayushrathod03"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-accent-light transition-colors flex items-center gap-1.5"
+          >
+            <Github className="w-4 h-4" />
+            <span>GitHub</span>
           </a>
         </motion.div>
       </motion.div>

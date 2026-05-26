@@ -6,9 +6,11 @@ import Overlay from "./Overlay";
 
 const TOTAL_FRAMES = 160;
 
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
+
 const getFramePath = (index: number) => {
   const paddedIndex = index.toString().padStart(3, "0");
-  return `/my-portfolio/sequence/frame_${paddedIndex}_delay-0.05s.webp`;
+  return `${BASE_PATH}/sequence/frame_${paddedIndex}_delay-0.05s.webp`;
 };
 
 export default function ScrollyCanvas() {

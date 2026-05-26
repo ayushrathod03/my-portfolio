@@ -14,15 +14,17 @@ interface Project {
   published?: string;
 }
 
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
+
 const PROJECTS: Project[] = [
   {
     id: "ai-video-meetings",
     title: "AI-Powered Video & Image Processing",
     category: "Computer Vision & WebRTC",
     description: "Real-time meeting architecture featuring low-latency background blurring, live facial recognition, and noise suppression. Powered by real-time YOLO object detection, OCR, TensorFlow, MySQL, and WebRTC integration on a custom Jitsi server core.",
-    image: "/my-portfolio/projects/ai_video.png",
+    image: `${BASE_PATH}/projects/ai_video.png`,
     tags: ["YOLO", "TensorFlow", "WebRTC", "OCR", "MySQL", "Jitsi"],
-    link: "#",
+    link: "https://github.com/ayushrathod03/AI-Powered-Video-Image-Processing",
     published: "Published in IJARSCT (Vol. 4, Issue 4)",
   },
   {
@@ -30,27 +32,27 @@ const PROJECTS: Project[] = [
     title: "E-Commerce Management System",
     category: "Full-Stack Enterprise Core",
     description: "Architected a comprehensive platform using PHP, Python, and HTML/CSS to streamline digital storefront operations. Engineered robust SQL and PL/SQL structured schemas enabling secure user registration, automated order workflows, and administrative inventory portals.",
-    image: "/my-portfolio/projects/ecommerce.png",
+    image: `${BASE_PATH}/projects/ecommerce.png`,
     tags: ["PHP", "Python", "SQL", "PL/SQL", "HTML/CSS"],
-    link: "#",
+    link: "https://github.com/ayushrathod03/Ecommerce-Management-System",
   },
   {
     id: "nlp-classification",
     title: "Deep NLP Sentence Classifier",
     category: "Natural Language Processing",
     description: "Developed a robust multi-class text classification architecture utilizing PyTorch to categorize sophisticated natural language streams. Evaluated optimization performance via custom training loops, Softmax Regression, and aggressive hyperparameter tuning.",
-    image: "/my-portfolio/projects/nlp_model.png",
+    image: `${BASE_PATH}/projects/nlp_model.png`,
     tags: ["PyTorch", "NLP", "Softmax Regression", "Deep Learning"],
-    link: "#",
+    link: "https://github.com/ayushrathod03/NLP-Sentence-Classifier",
   },
   {
     id: "fraud-detection",
     title: "Credit Card Fraud Anomaly Engine",
     category: "Machine Learning / Security",
     description: "Engineered a high-precision ML detection ecosystem identifying fraudulent transactional vectors utilizing custom Isolation Forest and DBSCAN algorithms. Optimized feature sets to achieve over 90% precision, augmented by custom Python real-time dashboards.",
-    image: "/my-portfolio/projects/fraud_detection.png",
+    image: `${BASE_PATH}/projects/fraud_detection.png`,
     tags: ["Isolation Forest", "DBSCAN", "Python", "Data Visualization"],
-    link: "#",
+    link: "https://github.com/ayushrathod03/Credit-Card-Fraud-Anomaly-Engine",
   },
 ];
 
@@ -88,8 +90,11 @@ export default function Projects() {
         {/* Work Grid - perfectly balanced 2x2 layout for 4 premium projects */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PROJECTS.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.id}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -99,7 +104,7 @@ export default function Projects() {
                 ease: [0.16, 1, 0.3, 1],
               }}
               whileHover={{ y: -6 }}
-              className="group relative rounded-2xl overflow-hidden glass-panel flex flex-col transition-all duration-300 hover:shadow-glow-accent hover:border-accent/40"
+              className="group relative rounded-2xl overflow-hidden glass-panel flex flex-col transition-all duration-300 hover:shadow-glow-accent hover:border-accent/40 cursor-pointer"
             >
               {/* Image Thumbnail Container */}
               <div className="relative w-full h-72 overflow-hidden bg-neutral-900/50 border-b border-white/5">
@@ -150,7 +155,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
