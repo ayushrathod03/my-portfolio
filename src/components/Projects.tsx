@@ -18,6 +18,26 @@ const BASE_PATH = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
 
 const PROJECTS: Project[] = [
   {
+    id: "scalable-url-shortener",
+    title: "Scalable URL Shortener & Distributed Analytics Pipeline",
+    category: "Distributed Systems / Backend Engineering",
+    description: "Architected a high-throughput URL shortener split into a sub-millisecond redirection engine and an asynchronous traffic tracking pipeline. Engineered a custom Redis Bloom Filter to catch cache misses and prevent database-scraping attacks. Built a background worker daemon to consume telemetry from RabbitMQ and perform transactional, micro-batched bulk inserts into time-series partitioned PostgreSQL tables.",
+    image: `${BASE_PATH}/projects/url_shortener.png`,
+    tags: [
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "Docker Compose",
+      "Prometheus",
+      "Grafana",
+      "TypeScript",
+      "React",
+    ],
+    link: "https://github.com/ayushrathod03/Scalable-URL-Shortener",
+  },
+  {
     id: "ai-video-meetings",
     title: "AI-Powered Video & Image Processing",
     category: "Computer Vision & WebRTC",
@@ -79,7 +99,7 @@ export default function Projects() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-              Featured Case Studies
+              Projects:
             </h2>
           </div>
           <p className="text-neutral-400 font-light max-w-md text-base sm:text-lg">
@@ -87,7 +107,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Work Grid - perfectly balanced 2x2 layout for 4 premium projects */}
+        {/* Work Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PROJECTS.map((project, index) => (
             <motion.a
@@ -107,7 +127,7 @@ export default function Projects() {
               className="group relative rounded-2xl overflow-hidden glass-panel flex flex-col transition-all duration-300 hover:shadow-glow-accent hover:border-accent/40 cursor-pointer"
             >
               {/* Image Thumbnail Container */}
-              <div className="relative w-full h-72 overflow-hidden bg-neutral-900/50 border-b border-white/5">
+              <div className="relative w-full overflow-hidden bg-neutral-900/50 border-white/5 h-72 border-b">
                 <img
                   src={project.image}
                   alt={project.title}
