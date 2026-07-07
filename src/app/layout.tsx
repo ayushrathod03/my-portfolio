@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Developer | High-End Portfolio",
+  title: "Ayush Rathod | Software Engineer ",
   description: "Awwwards-level scrollytelling personal portfolio showcasing high-performance canvas rendering, cinematic scroll animations, and premium interactive digital experiences.",
   keywords: ["Creative Developer", "Portfolio", "Next.js", "Framer Motion", "Canvas Animation", "Scrollytelling"],
 };

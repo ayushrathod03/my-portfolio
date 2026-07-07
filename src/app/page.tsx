@@ -1,5 +1,6 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Projects from "@/components/Projects";
+import Internships from "@/components/Internships";
 import ResumeDetails from "@/components/ResumeDetails";
 
 export default function Home() {
@@ -18,6 +19,12 @@ export default function Home() {
         Features interactive glassmorphism layout cards featuring Ayush's 4 core published projects.
       */}
       <Projects />
+
+      {/* 
+        Component 3.5: Professional Experiences & Internships
+        Features a detailed breakdown of industry and virtual internships separately from academic projects.
+      */}
+      <Internships />
 
       {/* 
         Component 4: Core Resume Details
