@@ -19,6 +19,23 @@ const BASE_PATH = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
 
 const PROJECTS: Project[] = [
   {
+    id: "sensor-privacy-pipeline",
+    title: "Smart Home Sensor Privacy & Compliance Analytics Pipeline",
+    category: "Data Engineering & Privacy Systems",
+    description: "Engineered a robust Python (Pandas/NumPy) ETL engine that ingests high-frequency telemetry, automates linear interpolation for missing data, and utilizes Z-score boundaries to eliminate sensor anomalies. Enforced 100% zero-leakage data boundaries using SHA-256 salted pseudonymization and local Differential Privacy (Laplace mechanism) aligned with institutional research guidelines (45 CFR 46). Structured clean datasets into a normalized SQLite database utilizing advanced window function queries, and mapped the schemas directly into an interactive Tableau executive dashboard for leadership reporting.",
+    image: `${BASE_PATH}/projects/sensor_privacy.png`,
+    tags: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "SQLite",
+      "Differential Privacy",
+      "SHA-256",
+      "Tableau",
+    ],
+    link: "https://github.com/ayushrathod03/Institutional-Data-Privacy-Pipeline",
+  },
+  {
     id: "scalable-url-shortener",
     title: "Scalable URL Shortener & Distributed Analytics Pipeline",
     category: "Distributed Systems / Backend Engineering",
