@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, ArrowUpRight, Sparkles, BookOpen } from "lucide-react";
+import { ExternalLink, ArrowUpRight, Sparkles, BookOpen, Github } from "lucide-react";
 
 interface Project {
   id: string;
@@ -12,6 +12,7 @@ interface Project {
   tags: string[];
   link: string;
   published?: string;
+  paperLink?: string;
 }
 
 const BASE_PATH = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
@@ -46,6 +47,7 @@ const PROJECTS: Project[] = [
     tags: ["YOLO", "TensorFlow", "WebRTC", "OCR", "MySQL", "Jitsi"],
     link: "https://github.com/ayushrathod03/AI-Powered-Video-Image-Processing",
     published: "Published in IJARSCT (Vol. 4, Issue 4)",
+    paperLink: "https://drive.google.com/file/d/18aP2FpoRemWS02syT4uJl3ZNVZIUIUIl/view?usp=sharing",
   },
   {
     id: "ecommerce-management",
@@ -110,11 +112,9 @@ export default function Projects() {
         {/* Work Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PROJECTS.map((project, index) => (
-            <motion.a
+            <motion.div
               key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -137,9 +137,22 @@ export default function Projects() {
                 
                 {/* Publication badge overlay if available */}
                 {project.published && (
-                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-accent/80 text-white text-xs font-semibold backdrop-blur-md border border-white/10">
+                  <div 
+                    onClick={(e) => {
+                      if (project.paperLink) {
+                        e.stopPropagation();
+                        window.open(project.paperLink, "_blank", "noopener,noreferrer");
+                      }
+                    }}
+                    className={`absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-white text-xs font-semibold backdrop-blur-md border border-white/10 ${
+                      project.paperLink 
+                        ? "bg-cyan-500/80 hover:bg-cyan-400 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-cyan-500/20" 
+                        : "bg-accent/80"
+                    }`}
+                  >
                     <BookOpen className="w-3.5 h-3.5" />
                     <span>{project.published}</span>
+                    {project.paperLink && <ArrowUpRight className="w-3 h-3" />}
                   </div>
                 )}
 
@@ -161,6 +174,34 @@ export default function Projects() {
                   <p className="mt-3 text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
                     {project.description}
                   </p>
+
+                  {/* Links / Document Section */}
+                  {(project.link || project.paperLink) && (
+                    <div className="mt-5 flex items-center gap-4 border-t border-white/5 pt-4">
+                      <span
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.link, "_blank", "noopener,noreferrer");
+                        }}
+                        className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-accent-light transition-colors font-medium cursor-pointer"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        Codebase
+                      </span>
+                      {project.paperLink && (
+                        <span
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.paperLink, "_blank", "noopener,noreferrer");
+                          }}
+                          className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-cyan-400 transition-colors font-medium cursor-pointer border-l border-white/10 pl-4"
+                        >
+                          <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+                          Research Paper
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Tags */}
@@ -175,7 +216,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

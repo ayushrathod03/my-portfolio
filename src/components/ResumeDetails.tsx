@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award, Terminal, Github } from "lucide-react";
+import { GraduationCap, Briefcase, Award, Terminal, Github, ExternalLink, ArrowUpRight } from "lucide-react";
 
 export default function ResumeDetails() {
   const containerVariants = {
@@ -197,22 +197,30 @@ export default function ResumeDetails() {
             </div>
 
             {/* Research Publication box - aquatic theme */}
-            <motion.div 
+            <motion.a 
+              href="https://drive.google.com/file/d/18aP2FpoRemWS02syT4uJl3ZNVZIUIUIl/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ y: -4, scale: 1.01 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-[#0B192C]/50 via-[#0f2540]/30 to-[#1E3E62]/40 border border-cyan-500/30 shadow-lg relative overflow-hidden group"
+              className="p-6 rounded-2xl bg-gradient-to-br from-[#0B192C]/50 via-[#0f2540]/30 to-[#1E3E62]/40 border border-cyan-500/30 shadow-lg relative overflow-hidden group block cursor-pointer"
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-400/10 rounded-full blur-xl pointer-events-none" />
               <div className="flex items-center gap-2 text-cyan-400 mb-3 font-semibold">
                 <Award className="w-4 h-4 text-cyan-300 animate-pulse" />
                 <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-300">Research Publication</span>
               </div>
-              <h5 className="text-sm font-bold text-white leading-snug group-hover:text-cyan-300 transition-colors duration-300">
+              <h5 className="text-sm font-bold text-white leading-snug group-hover:text-cyan-300 transition-colors duration-300 flex items-center gap-1.5">
                 AI-Powered Video and Image Processing for Video Meetings
+                <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-cyan-400" />
               </h5>
               <p className="text-[11px] text-neutral-400 mt-2 font-light leading-relaxed">
                 Authored by Ayush Rathod et al. Published in IJARSCT (ISSN: 2581-9429, Vol. 4 Issue 4). Proposes highly optimized Jitsi real-time pipeline algorithms.
               </p>
-            </motion.div>
+              <div className="mt-4 flex items-center gap-1 text-[10px] text-cyan-400 font-semibold uppercase tracking-wider group-hover:text-cyan-300 transition-colors duration-300">
+                <span>View PDF Document</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+            </motion.a>
           </motion.div>
         </motion.div>
 
