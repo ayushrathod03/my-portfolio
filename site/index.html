@@ -6,6 +6,13 @@
 <title>Ayush Rathod — Backend & Applied ML Engineer</title>
 <meta name="description" content="Ayush Rathod — M.S. Computer Science at UMBC. Backend systems that hold under load, and ML models that show their work.">
 <link rel="icon" type="image/png" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ayushrathod03.github.io/my-portfolio/">
+<meta property="og:image" content="https://ayushrathod03.github.io/my-portfolio/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ayushrathod03.github.io/my-portfolio/og.jpg">
 <meta property="og:title" content="Ayush Rathod — Backend & Applied ML Engineer">
 <meta property="og:description" content="Backend systems that hold under load, and ML models that show their work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +60,7 @@ header.bar.scrolled .mark{color:var(--ink)}
 .right{display:flex;justify-content:flex-end;gap:4px}
 .right a{padding:7px 14px;border-radius:99px;font-size:14px;color:var(--D-ink);background:color-mix(in srgb,var(--L-ink) 88%,transparent)}
 .right a:hover{background:var(--accent);color:#fff}
-@media (max-width:760px){header.bar{grid-template-columns:auto 1fr}.mark span{display:none}.right{display:none}.seg{justify-self:end}.seg button{padding:7px 11px}}
+@media (max-width:760px){header.bar{grid-template-columns:auto 1fr auto;gap:8px}.mark span{display:none}.right>a{display:none}.seg{justify-self:end}.seg button{padding:7px 10px}.cv summary{padding:7px 12px}}
 
 /* ---------- split hero ---------- */
 .hero{--split:50%;position:relative;height:100svh;min-height:620px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:pointer}
@@ -238,6 +245,37 @@ button.plus:hover{border-color:var(--accent)}
 .log i{font-style:normal;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media (max-width:820px){.demo{grid-column:1}.cells{grid-template-columns:repeat(10,minmax(0,1fr))}.link-row{grid-template-columns:auto minmax(0,1fr) auto;row-gap:6px}.link-row .clicks{grid-column:2}}
 
+/* resume menu */
+.cv{position:relative}
+.cv summary{list-style:none;cursor:pointer;padding:7px 14px;border-radius:99px;font-size:14px;font-weight:500;background:var(--accent);color:#fff;user-select:none}
+.cv summary::-webkit-details-marker{display:none}
+.cv summary:hover{filter:brightness(1.08)}
+.cv-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;padding:6px;border-radius:14px;background:var(--L-ink);box-shadow:0 12px 32px rgba(0,0,0,.25);display:grid}
+.cv-menu a{display:flex!important;justify-content:space-between;gap:16px;padding:10px 12px!important;border-radius:9px!important;background:none!important;color:#ece8de!important;font-size:14px}
+.cv-menu a:hover{background:#ffffff14!important}
+.cv-menu span{font:500 11px var(--mono);color:var(--accent)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:calc(var(--pad)*1.4);align-items:center}
+.portrait{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4;background:var(--paper-2)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.portrait:hover img{transform:scale(1.03)}
+.portrait::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.about-text .mono{color:var(--accent);margin-bottom:18px}
+.about-text h2{font-size:clamp(34px,4.6vw,64px);font-weight:600;letter-spacing:-.045em;line-height:.98;margin-bottom:26px}
+.about-text h2 em{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--accent)}
+.about-text p{font-size:18px;line-height:1.6;color:var(--muted);max-width:56ch;margin-bottom:16px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px;border-top:1px solid var(--line)}
+.facts div{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts dt{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}
+.facts dd{font-size:16px;font-weight:500}
+@media (max-width:820px){.about{grid-template-columns:1fr}.portrait{max-width:340px}}
+
+.live-btn{display:inline-flex;align-items:center;gap:10px;justify-self:start;padding:10px 16px;border-radius:99px;background:var(--accent);color:#fff;font-weight:500;font-size:14px;transition:filter .2s,transform .3s var(--ease)}
+.live-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+
 /* experience */
 .exp{display:grid;grid-template-columns:220px 1fr auto;gap:var(--pad);padding:30px 0;border-bottom:1px solid var(--line)}
 .exp .when{font:400 13px var(--mono);color:var(--muted);padding-top:4px}
@@ -300,7 +338,10 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
     <button data-set="both" aria-pressed="true">Both</button>
     <button data-set="ml" aria-pressed="false">ML</button>
   </div>
-  <div class="right"><a href="#work">Work</a><a href="https://github.com/ayushrathod03" target="_blank" rel="noopener">GitHub</a><a href="#contact">Contact</a></div>
+  <div class="right"><details class="cv" id="cv"><summary>Resume</summary><div class="cv-menu">
+      <a data-t="backend" href="Ayush_Rathod_Resume_Backend.pdf" target="_blank" rel="noopener">Backend / full-stack<span>PDF</span></a>
+      <a data-t="ml" href="Ayush_Rathod_Resume_ML.pdf" target="_blank" rel="noopener">Machine learning<span>PDF</span></a>
+    </div></details><a href="#work">Work</a><a href="https://github.com/ayushrathod03" target="_blank" rel="noopener">GitHub</a><a href="#contact">Contact</a></div>
 </header>
 
 <main id="top">
@@ -357,6 +398,25 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
     </div>
   </section>
 
+  <!-- ================= ABOUT ================= -->
+  <section class="block wrap" id="about-me">
+    <div class="about">
+      <figure class="portrait rv"><img src="ayush.jpg" width="720" height="960" alt="Portrait of Ayush Rathod" loading="lazy" decoding="async"></figure>
+      <div class="about-text rv">
+        <div class="mono">About</div>
+        <h2>Two halves, <em>one engineer.</em></h2>
+        <p>I'm Ayush, a master's student in Computer Science at UMBC, graduating in May 2027. I studied computer engineering in Pune with a minor in data science, and my work keeps landing in two places: Java and Spring backends that have to stay correct under concurrent load, and machine learning that has to prove itself on held-out data.</p>
+        <p>I measure what I build: throughput, p95 latency, precision, hit rate. When a number moves, I want to be able to explain why. Right now I'm a graduate assistant for Discrete Structures, and I'm looking for a team where the backend and the model both matter.</p>
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Baltimore, MD</dd></div>
+          <div><dt>Studying</dt><dd>M.S. CS, UMBC · GPA 3.8</dd></div>
+          <div><dt>Focus</dt><dd>Backend + applied ML</dd></div>
+          <div><dt>Looking for</dt><dd>SWE &amp; ML roles</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= WORK ================= -->
   <section class="block wrap" id="work">
     <div class="sec-head rv">
@@ -386,6 +446,7 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
               <div class="metric"><div class="v">17.2<i>ms</i></div><div class="l">Avg retrieval</div></div>
               <div class="metric"><div class="v">861</div><div class="l">Chunks indexed</div></div>
             </div>
+            <a class="live-btn" href="https://ayush-rag-doc.streamlit.app/" target="_blank" rel="noopener"><span class="pulse-dot"></span>Try the live app &#8599;</a>
             <div class="stack"><span>Python</span><span>LangChain</span><span>FAISS</span><span>BGE</span><span>Gemini API</span><span>Streamlit</span></div>
           </div>
         </div></div></div>
@@ -609,6 +670,8 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
       <a href="https://github.com/ayushrathod03" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="https://www.linkedin.com/in/rathodayush10/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="#" id="copy">Copy email</a>
+      <a href="Ayush_Rathod_Resume_Backend.pdf" target="_blank" rel="noopener">Backend resume (PDF)</a>
+      <a href="Ayush_Rathod_Resume_ML.pdf" target="_blank" rel="noopener">ML resume (PDF)</a>
     </div>
     <div class="foot mono"><span>© 2026 Ayush Rathod</span><span>Baltimore, MD</span><a href="#top">Back to top ↑</a></div>
   </footer>
@@ -623,6 +686,7 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
   const ORDER = ['ml', 'both', 'backend'];
   const mq = matchMedia('(max-width:760px)'), mobile = () => mq.matches;
   let track = 'both';
+  const cv = $('#cv');
 
   // ---- track state: drives hero, page theme, projects, skills and copy ----
   function setTrack(t, moveSplit = true) {
@@ -634,6 +698,7 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
     let n = 0;
     $$('.proj').forEach(p => { const show = t === 'both' || p.dataset.cat.split(' ').includes(t); p.classList.toggle('hide', !show); if (show) n++; });
     $$('.repo').forEach(r => r.classList.toggle('hide', t !== 'both' && r.dataset.cat !== t));
+    if (cv) { cv.open = false; cv.querySelector('summary').textContent = t === 'both' ? 'Resume' : (t === 'ml' ? 'ML resume' : 'Backend resume'); }
     $('#count').textContent = String(n).padStart(2, '0') + ' projects';
     try { localStorage.setItem('track', t); } catch (e) {}
   }
@@ -890,6 +955,18 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
       };
       exp.onclick = () => { rec.gone = true; cache.delete(code); row.classList.add('gone'); exp.disabled = true; line(204, 'DELETE /' + code, 'expired · evicted from cache'); };
     };
+  }
+
+  // ---- resume: one click in a single track, a menu in "Both" ----
+
+  if (cv) {
+    cv.querySelector('summary').addEventListener('click', e => {
+      if (track === 'both') return;
+      e.preventDefault();
+      window.open(cv.querySelector(`[data-t="${track}"]`).href, '_blank', 'noopener');
+    });
+    document.addEventListener('click', e => { if (cv.open && !cv.contains(e.target)) cv.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cv.open = false; });
   }
 
   // ---- copy email ----
