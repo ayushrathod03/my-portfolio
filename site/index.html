@@ -105,7 +105,8 @@ html[data-track="backend"] .dark .main,html[data-track="ml"] .light .main{opacit
 .list div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 18px;padding:13px 0;border-bottom:1px solid color-mix(in srgb,currentColor 22%,transparent);font-size:17px;letter-spacing:-.01em}
 .list span{font:500 14px var(--mono);color:var(--accent);white-space:nowrap}
 
-.giant{grid-column:1/-1;grid-row:2;font-size:13.4vw;font-weight:700;letter-spacing:-.065em;line-height:.8;white-space:nowrap;margin:0 0 .6vw -.6vw;pointer-events:none}
+.giant{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:1fr 1fr;column-gap:calc(var(--pad)*2);font-size:11vw;font-weight:700;letter-spacing:-.06em;line-height:.88;white-space:nowrap;margin:0 0 1.8vw;pointer-events:none}
+.giant span:first-child{justify-self:end}
 .dark .giant{color:var(--accent)}
 
 .divider{position:absolute;top:0;bottom:0;left:var(--split);width:2px;margin-left:-1px;background:var(--accent);z-index:5;cursor:ew-resize;touch-action:none}
@@ -128,7 +129,7 @@ html[data-track="backend"] .dark .main,html[data-track="ml"] .light .main{opacit
   .dark .side p{margin-left:0}
   .extra,.divider,.dark .giant{display:none}
   .main{opacity:1!important}
-  .giant{order:-1;font-size:14.5vw;margin:0 0 36px}
+  .giant{order:-1;display:block;font-size:14.5vw;margin:0 0 36px}
 }
 
 /* ---------- sections ---------- */
@@ -366,7 +367,7 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
           <div>URL shortener<span>11 CI tests</span></div>
         </div>
       </div>
-      <div class="giant" aria-hidden="true">Ayush Rathod</div>
+      <div class="giant" aria-hidden="true"><span>Ayush</span> <span>Rathod</span></div>
     </div>
 
     <!-- dark half: ML -->
@@ -387,9 +388,9 @@ html[data-track="backend"] .chips span[data-t="b"],html[data-track="ml"] .chips 
           <canvas aria-hidden="true"></canvas>
           <div class="sim-hud"><span>Scored <b data-k="scored">0</b></span><span>Flagged <b data-k="flagged">0</b></span><span>Test precision <b>0.863</b></span><span class="live">Live</span></div>
         </div>
-        <div class="stackline">Transactions through the XGBoost model · simulation, fraud rate boosted</div>
+        <div class="stackline">XGBoost scoring · simulation, fraud boosted</div>
       </div>
-      <div class="giant" aria-hidden="true">Ayush Rathod</div>
+      <div class="giant" aria-hidden="true"><span>Ayush</span> <span>Rathod</span></div>
     </div>
 
     <div class="divider" id="divider" role="slider" tabindex="0" aria-label="Switch between backend and machine learning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="Both">
